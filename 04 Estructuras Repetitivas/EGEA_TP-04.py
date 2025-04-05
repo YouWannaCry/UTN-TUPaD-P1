@@ -2,6 +2,7 @@ import random
 from statistics import mode, median, mean
 
 class tpController:
+    #Ejercicio 1
     def printCentena(self):
         """Imprimir números del 0 al 100"""
         i = 0
@@ -9,6 +10,7 @@ class tpController:
             print(i)
             i += 1
 
+    #Ejercicio 2
     def digitosEnteros(self):
         """Cantidad de que contiene un entero"""
         numero = input("Dime un numero entero, y te dire cuantos digitos tiene: ")
@@ -19,6 +21,7 @@ class tpController:
         ##Tambien se puede hacer asi sin el for, 
         # print(f"El numero entero que me diste tiene {len(numero)} digitos!")
 
+    #Ejercicio 3
     def sumatoria(self):
         """Suma todos los enteros entre dos valores"""
         num1, num2 = int(input("Dime dos valores, y te dare la sumatoria de todos los valores intermedios: "))
@@ -27,6 +30,7 @@ class tpController:
             sumatoria += i
         print(sumatoria)
 
+    #Ejercicio 4
     def sumaInfinita(self):
         """Suma hasta que se ingrese un 0"""
         numero = int(input("""Sumare todos los numeros que escribas, hasta que escribas 0 
@@ -37,6 +41,7 @@ class tpController:
             numero = int(input(f"La suma hasta ahora es {suma}, que quieres sumar ahora? 0 para terminar: "))
         print(f"La suma final es de {suma}")
 
+    #Ejercicio 5
     def adivina(self):
         """Genera un numero aleatorio entre 0 y 9, y cuenta las veces que el usuario tarda en adivinar"""
         numero = random.randint(0, 9)
@@ -55,11 +60,13 @@ class tpController:
               Intentaste {counter} veces.
               Estos fueron tus intentos: {", ".join(str(numero) for numero in tried)}""")
         
+    #Ejercicio 6
     def printParCentena(self):
         """Imprime todos los numeros pares desde el 100 hasta el 0"""
         for i in range(100, 0, -2):
             print(i)
 
+    #Ejercicio 7
     def sumatoriaHastaX(self):
         """Suma todos los enteros entre 0 y un valor dado"""
         num1 = int(input("Dime un valor, y te dare la sumatoria de todos los numeros hasta ese: "))
@@ -68,6 +75,7 @@ class tpController:
             sumatoria += i
         print(sumatoria)
 
+    #Ejercicio 8
     def datoCentenar(self):
         """Permite ingresar 100 numeros (o generarlos al azar) y calcula varios parametros"""
         ## lista = [random.randint(-1000, 1000) for _ in range(100)] ##Metodo para probar y generar la cantidad que se quieran de valores
@@ -121,6 +129,7 @@ class tpController:
 """)
 
 
+    #Ejercicio 9
     def  mediaDeCentena(self):
         """Permite ingresar 100 numeros (o generarlos al azar) y calcula la media"""
         # lista = [random.randint(-1000, 1000) for _ in range(100)] ##Metodo para probar y generar la cantidad que se quieran de valores
@@ -144,6 +153,7 @@ class tpController:
               Esta es su media: {media}
 """)
         
+    #Ejercicio 10
     def invertir(self):
         """Invierte los numeros ingresados por el usuario"""
         numero = input("Que numero quieres invertir? ")
