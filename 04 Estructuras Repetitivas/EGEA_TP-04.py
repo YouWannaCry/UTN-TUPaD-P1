@@ -174,6 +174,8 @@ class tpController:
         if isNegative:
             inverse = -inverse
         print(f"El numero invertido es {inverse}")
+
+    def
     
         
 def main():

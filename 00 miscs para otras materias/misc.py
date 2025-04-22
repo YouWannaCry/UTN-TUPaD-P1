@@ -1,3 +1,5 @@
+import random
+
 class tpController:
     def decimalToBinary(self):
         decimal = int(input("Ingresa un número decimal: "))
@@ -18,11 +20,26 @@ class tpController:
         
         print(f"\nEl número {numero_original} en binario es: {resultado}")
 
+    def printWhile(self):
+        i = 0
+        while (i < 9):
+            if(i == 7):
+                i += 1
+                continue
+            print(i)
+            i += 1
+
+    def adivinar(self):
+        numero = random.randint(0, 9)
+        guess = int(input("Dame un numero y te dire si es el que estoy pensando: "))
+        while numero != guess:
+            guess = int(input("Ese numero es incorrecto, intenta de nuevo! "))
+        print(f"Correcto! El numero era: {numero}")
 
 def main():
     ctrl = tpController()
     opciones = {
-        "1": ctrl.decimalToBinary,
+        "1": ctrl.adivinar,
     }
 
     eleccion = "1"
