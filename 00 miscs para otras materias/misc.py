@@ -33,7 +33,11 @@ class tpController:
         numero = random.randint(0, 9)
         guess = int(input("Dame un numero y te dire si es el que estoy pensando: "))
         while numero != guess:
-            guess = int(input("Ese numero es incorrecto, intenta de nuevo! "))
+            if(numero < guess):
+                print("Ese numero es muy alto")
+            elif(numero > guess):
+                print("Ese numero es muy bajo")
+            guess = int(input("Intenta de nuevo! "))
         print(f"Correcto! El numero era: {numero}")
 
 def main():
