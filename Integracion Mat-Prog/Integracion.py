@@ -20,9 +20,9 @@ class aux:
     
     def getValidIntInput(prompt, minVal, maxVal):
         while True:
-            entrada = input(prompt)
-            if entrada.isdigit():
-                guess = int(entrada)
+            input = input(prompt)
+            if input.isdigit():
+                guess = int(input)
                 if minVal <= guess <= maxVal:
                     return guess
                 else:
