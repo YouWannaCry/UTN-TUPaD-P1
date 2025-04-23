@@ -43,7 +43,7 @@ class tpController:
 def main():
     ctrl = tpController()
     opciones = {
-        "1": ctrl.adivinar,
+        "1": ctrl.decimalToBinary,
     }
 
     eleccion = "1"

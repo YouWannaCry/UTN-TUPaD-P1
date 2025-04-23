@@ -175,9 +175,6 @@ class tpController:
             inverse = -inverse
         print(f"El numero invertido es {inverse}")
 
-    def
-    
-        
 def main():
     ctrl = tpController()
 
