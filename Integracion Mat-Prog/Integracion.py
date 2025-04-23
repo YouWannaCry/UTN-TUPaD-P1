@@ -34,7 +34,7 @@ class aux:
 class controller:
     def logicQuiz(self):
         hardness = aux.getValidIntInput(f"¿Que dificultad quieres?\n(Debes colocar entre 1 y 6): ", 1, 6)
-        totalQuestion = hardness 
+        totalQuestion = hardness + 2
         answered = 0
         totalTries = 0
         while totalQuestion > answered:
