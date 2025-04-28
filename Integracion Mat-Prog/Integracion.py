@@ -12,11 +12,11 @@ class aux:
         return resultado if resultado else "0"
 
     # Genera un conjunto de opciones falsas junto con la opcion correcta
-    def falseOption(resultado, cantidad=4):
+    def falseOption(resultado, cantidad):
         correctOption = aux.decimalToBinary(resultado)
         options = {correctOption}
         while len(options) < cantidad + 1:
-            alter = resultado + random.choice([-3, -2, -1, 1, 2, 3])
+            alter = resultado + random.choice([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5])
             if alter >= 0:
                 options.add(aux.decimalToBinary(alter))
         return list(options)
@@ -24,9 +24,9 @@ class aux:
     # Solicita un numero entero valido dentro de un rango dado
     def getValidIntInput(prompt, minVal, maxVal):
         while True:
-            input_value = input(prompt)
-            if input_value.isdigit():
-                guess = int(input_value)
+            inputValue = input(prompt)
+            if inputValue.isdigit():
+                guess = int(inputValue)
                 if minVal <= guess <= maxVal:
                     return guess
                 else:
@@ -50,25 +50,24 @@ class controller:
             bin1 = aux.decimalToBinary(dec1)
             bin2 = aux.decimalToBinary(dec2)
             result = eval(f"{dec1} {op} {dec2}")
-            binary = aux.decimalToBinary(result)
+            binaryResult = aux.decimalToBinary(result)
             options = aux.falseOption(result, hardness)
-            print(binary)
             print(f"""
 Pregunta {answered + 1}
 Que resultado dara la operacion {bin1} {op} {bin2}?
 Opciones:""")
-            for i, option in enumerate(options, start=1):
-                print(f"{i}) {option}")
+            for i in range(len(options)):
+                print(f"{i+1} - {options[i]}")
             # El usuario elige su respuesta
             guess = aux.getValidIntInput("Cual es la opcion correcta? ", 1, len(options))
             tries = 0
             while True:
                 tries += 1
                 totalTries += 1
-                if(options[guess-1] != binary):
+                if(options[guess-1] != binaryResult):
                     # Si falla, se vuelve a mostrar las opciones
-                    for i, option in enumerate(options, start=1):
-                        print(f"{i}) {option}")
+                    for i in range(len(options)):
+                        print(f"{i+1} - {options[i]}")
                     guess = aux.getValidIntInput("Ups, ese no es el resultado, intenta de nuevo: ", 1, len(options))
                     continue
                 else:
@@ -77,7 +76,7 @@ Opciones:""")
                     break
             answered += 1
         # Se muestra un resumen final de precision
-        print(f"Felicidades, respondiste todas las preguntas! Te tomo tan solo {totalTries} intentos, eso es una precision del {(totalQuestion/totalTries)*100}%")
+        print(f"Felicidades, respondiste todas las preguntas! Te tomo tan solo {totalTries} intentos, eso es una precision del {round((totalQuestion/totalTries)*100, 2)}%")
 
 # Punto de entrada del programa
 if __name__ == "__main__":
